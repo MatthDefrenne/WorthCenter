@@ -22,8 +22,17 @@ class user
         }
     }
 
-    public function checkIsExist() {
+    public function checkEmailIsExist() {
         $user  = \R::find( 'users', ' email = :email ', [ ':email' => $this->email ] );
+        if($user) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function checkPseudoIsExist() {
+        $user  = \R::find( 'users', ' pseudo = :pseudo ', [ ':pseudo' => $this->pseudo ] );
         if($user) {
             return true;
         } else {
