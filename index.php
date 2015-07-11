@@ -4,6 +4,7 @@ require_once 'libs/Slim/Slim.php';
 require 'libs/Slim/Middleware.php';
 require 'controller/indexController.php';
 require 'controller/connexionController.php';
+require 'controller/membreController.php';
 require 'controller/projetsController.php';
 require 'controller/conceptController.php';
 require 'controller/formulesController.php';
@@ -54,7 +55,7 @@ $app->post('/inscription', function () use ($app) {
 $app->get('/compte', function () use ($app) {
 });
 $app->get('/membre', function () use ($app) {
-    inscriptionController::index();
+    membreController::index();
 });
 
 $app->render('header.php');
