@@ -3,6 +3,10 @@
 require_once 'libs/Slim/Slim.php';
 require 'libs/Slim/Middleware.php';
 require 'controller/indexController.php';
+require 'controller/connexionController.php';
+require 'controller/projetsController.php';
+require 'controller/conceptController.php';
+require 'controller/formulesController.php';
 require 'controller/inscriptionController.php';
 require_once 'middleware/authMiddleware.php';
 require 'class/flash.php';
@@ -36,7 +40,10 @@ $app->get('/contact', function () use ($app) {
 	contactController::contact();
 });
 $app->get('/connexion', function () use ($app) {
-	connexionController::connexion();
+	connexionController::index();
+});
+$app->post('/connexion', function () use ($app) {
+    connexionController::connexion();
 });
 $app->get('/inscription', function () use ($app) {
 	inscriptionController::index();
@@ -45,10 +52,9 @@ $app->post('/inscription', function () use ($app) {
     inscriptionController::subscribe();
 });
 $app->get('/compte', function () use ($app) {
-
 });
 $app->get('/membre', function () use ($app) {
-
+    inscriptionController::index();
 });
 
 $app->render('header.php');

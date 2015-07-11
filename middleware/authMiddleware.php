@@ -15,8 +15,7 @@ class authMiddleware extends \Slim\Middleware
         $currentRoute = $this->app->request()->getPathInfo();
         $isAuthorized = function () use ($app, $currentRoute) {
             if ($currentRoute == "/membre") {
-                if ($app->getCookie("sessions")) {
-                    $app->redirect('membre');
+                if ($app->getCookie("user")) {
                 } else {
                     flash::setFlash('session', "Vous devez être connecté pour acceder à cette page !");
                     $app->redirect('connexion');

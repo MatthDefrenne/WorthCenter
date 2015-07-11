@@ -37,7 +37,5 @@ class inscriptionController extends \Slim\Slim
             }
             $slim->redirect('inscription');
         }
-
-
     }
 }

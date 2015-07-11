@@ -50,4 +50,4 @@
         </div>
         <a href="/projets"><h6 class="center-align indigo-text"><b><u>VOIR TOUS LES PROJETS</u></b></h6></a>
       </div>
-  </div>
+</div>

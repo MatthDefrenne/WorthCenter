@@ -7,10 +7,6 @@
           <a href="projets" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Découvrir les projets</a>
           <a href="inscription" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Démarrer l'aventure</a></br>
           <h3 class="text-center indigo-text text-lighten-5">Avec Worth Center Community investissez à partir d'1€ dans des formules sélectionnées</h3>
-          <a href="projets" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Découvrir les projets</a>
-          <a href="inscription" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Démarrer l'aventure</a></br>
-          <h4 class="indigo-text text-darken-5">Avec Worth Center Community investissez à partir de 20€ dans des formules sélectionnées</h4>
-          <a href="#concept"><i class="large mdi-navigation-arrow-drop-down-circle indigo-text"></i></a>
         </div>
         <br><br>
       </div>
@@ -46,5 +42,6 @@
               <span class="indigo-text"> les meilleurs investisseurs en investissant sur les même projets qu'eux.</span>
             </div>
           </div>
+      </div>
       </div>
       

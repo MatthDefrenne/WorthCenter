@@ -28,7 +28,7 @@ session_unset();
                         class="indigo-text" href="inscription"><b>inscription</b></a>.</p>
             </div>
         </div>
-        <form method="POST">
+        <form method="POST" action="">
             <div class="row">
                 <div class="input-field col s12">
                     <i class="mdi-content-mail prefix"></i>
