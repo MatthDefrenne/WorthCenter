@@ -5,6 +5,7 @@ require 'libs/Slim/Middleware.php';
 require 'controller/indexController.php';
 require 'controller/connexionController.php';
 require 'controller/projetsController.php';
+require 'controller/contactController.php';
 require 'controller/conceptController.php';
 require 'controller/formulesController.php';
 require 'controller/inscriptionController.php';
