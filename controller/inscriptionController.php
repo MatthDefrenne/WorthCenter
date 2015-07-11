@@ -17,10 +17,14 @@ class inscriptionController extends \Slim\Slim
             $slim->redirect('inscription');
             flash::setFlash('subscribe', "Les deux mots de passe ne sont pas identiques !");
         } else {
-            if (empty($_POST['Pseudonyme']) || empty($_POST['AdresseEmail'])
-                || empty($_POST['Motdepasse']) || empty($_POST['MotdepasseConfirmation'])
-            ) {
-                flash::setFlash('subscribe', "Merci de remplire correctement tous les champs");
+            if (empty($_POST['Pseudonyme'])) {
+                flash::setFlash('subscribe', "Merci de remplire le champs pseudonyme !");
+            } else if (empty($_POST['Motdepasse'])) {
+                flash::setFlash('subscribe', "Merci de renseigner un mot de passe !");
+            } else if (empty($_POST['AdresseEmail'])) {
+                flash::setFlash('subscribe', "Merci de renseigner une adresse email !");
+            } else if (!filter_var($_POST['AdresseEmail'],FILTER_VALIDATE_EMAIL)) {
+                flash::setFlash('subscribe', "Merci de renseigner une adresse email valide !");
             } else {
                 $user = new \WorthCenter\user(array(
                     "pseudo" => $_POST['Pseudonyme'],

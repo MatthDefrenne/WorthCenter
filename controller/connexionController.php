@@ -20,8 +20,19 @@ class connexionController extends \Slim\Slim
         if ($user->createSession()) {
             $slim->redirect('membre');
         } else {
-            flash::setFlash('subscribe', "Email ou mot de passe incorrecte.");
+            flash::setFlash('session', "Email ou mot de passe incorrecte.");
             $slim->redirect('connexion');
         }
     }
+
+    public static function deconnexion()
+    {
+        $slim = \Slim\Slim::getInstance();
+        unset($_COOKIE['user']);
+        setcookie("user", "", time() - (999999 * 30), "/"); // 86400 = 1 day
+        flash::setFlash('session', "Vous êtes bien deconnecté !");
+        $slim->redirect('connexion');
+
+    }
+
 }

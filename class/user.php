@@ -35,7 +35,6 @@ class user
         $user  = \R::getAll('SELECT * FROM users  WHERE email = :email AND password = :password ',
             [ ':email' => $this->email, ':password' => $this->password]);
         if($user) {
-            var_dump($user);
             setcookie("user", $user[0]['id'], time() + (86400 * 30), "/"); // 86400 = 1 day
             return true;
             } else {

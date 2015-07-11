@@ -8,6 +8,7 @@ require 'controller/projetsController.php';
 require 'controller/contactController.php';
 require 'controller/conceptController.php';
 require 'controller/formulesController.php';
+require 'controller/membreController.php';
 require 'controller/inscriptionController.php';
 require_once 'middleware/authMiddleware.php';
 require 'class/flash.php';
@@ -27,6 +28,7 @@ $app = new \Slim\Slim([
 $app->add(new authMiddleware());
 $app->get('/', function () use ($app) {
     indexController::index();
+    indexController::derniersProjets();
 });
 $app->get('/concept', function () use ($app) {
 	conceptController::concept();
@@ -43,6 +45,9 @@ $app->get('/contact', function () use ($app) {
 $app->get('/connexion', function () use ($app) {
 	connexionController::index();
 });
+$app->get('/deconnexion', function () use ($app) {
+    connexionController::deconnexion();
+});
 $app->post('/connexion', function () use ($app) {
     connexionController::connexion();
 });
@@ -55,7 +60,7 @@ $app->post('/inscription', function () use ($app) {
 $app->get('/compte', function () use ($app) {
 });
 $app->get('/membre', function () use ($app) {
-    inscriptionController::index();
+    membreController::index();
 });
 
 $app->render('header.php');

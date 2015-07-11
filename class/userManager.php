@@ -14,13 +14,4 @@ class userManager extends user
         $addUser->timestamp = new \DateTime();
         \R::store($addUser);
     }
-
-    public static function updateUser() {
-
-    }
-
-    public static function getUserById($id) {
-
-    }
-
 }
