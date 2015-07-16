@@ -10,10 +10,9 @@
     </div>
 </div>
 <?php
-session_start();
 if (isset($_SESSION['session'])) {
     ?>
-<div class="card-panel red darken-3"><?php echo $_SESSION['session']; ?></div>
+<div class="card-panel red green"><?php echo $_SESSION['session']; ?></div>
 <?php
 };
 session_unset();
@@ -46,12 +45,7 @@ session_unset();
             <div class="row">
                 <div class="input-field col s12">
                     <p class="left">
-                        <a href="#" class="indigo-text">Mot de passe oublié?</a>
-                    </p>
-
-                    <p class="right">
-                        <input type="checkbox" id="test5"/>
-                        <label for="test5">Rester connecté(e)</label>
+                        <a href="lostpassword" class="indigo-text">Mot de passe oublié?</a>
                     </p>
                 </div>
             </div>

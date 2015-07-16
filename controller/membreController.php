@@ -1,9 +1,34 @@
 <?php
+
 class membreController extends \Slim\Slim
 {
-    public static function index()
+    public static function userArea()
     {
         $slim = \Slim\Slim::getInstance();
-        $slim->render('membre.php');
+
+        $userArea = new \WorthCenter\userArea($slim->getCookie('user'));
+
+        $informations = $userArea->selectInformationsForUserArea();
+        $projects = $userArea->selectProjectsinvestissmentsActive();
+        $projectsOver = $userArea->selectProjectsinvestissmentsOver();
+
+        if(empty($projects)) {
+            $projects = array(
+                "empty" => "Aucun invessissements en cours !"
+            );
+        }
+
+        if(empty($projectsOver)) {
+            $projectsOver = array(
+                "empty" => "Vous n'avez pas investis dernièrement dans un projet !"
+            );
+        }
+
+        $slim->render('membre.php', array(
+            'informations' => $informations,
+            'projects' => $projects,
+            'projectsOver' => $projectsOver
+        ));
+
     }
 }

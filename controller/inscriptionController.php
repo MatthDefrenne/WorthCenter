@@ -32,6 +32,8 @@ class inscriptionController extends \Slim\Slim
                 ));
                 if ($user->checkEmailIsExist()) {
                     flash::setFlash('subscribe', "Cette email est déjà prise !");
+                } else if($user->checkPseudoIsExist()) {
+                    flash::setFlash('subscribe', "Ce pseudo est déjà pris !");
                 } else {
                     \WorthCenter\userManager::addUser($user);
                     flash::setFlash('subscribe', "Vous êtes bien inscris !");

@@ -2,7 +2,6 @@
 
 namespace WorthCenter;
 
-
 class userManager extends user
 {
     public static function addUser(user $user) {

@@ -45,10 +45,12 @@ class user
             [ ':email' => $this->email, ':password' => $this->password]);
         if($user) {
             setcookie("user", $user[0]['id'], time() + (86400 * 30), "/"); // 86400 = 1 day
+            setcookie("roles", sha1($user[0]['roles']), time() + (86400 * 30), "/"); // 86400 = 1 day
             return true;
             } else {
             return false;
         }
     }
+
 
 }

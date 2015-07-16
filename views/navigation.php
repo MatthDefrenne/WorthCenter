@@ -3,15 +3,21 @@
         <a id="logo-container" href="/" class="brand-logo">WorthCenter</a>
         <ul class="right hide-on-med-and-down">
             <li><a href="concept">Concept</a></li>
-            <li><a href="formules">Formules</a></li>
             <li><a href="projets">Projets</a></li>
             <li><a href="contact">Contact</a></li>
             <?php
+            if(isset($_COOKIE['roles'])) {
+                if($_COOKIE['roles'] == 2) {
+                    ?>
+                    <li><a href="admin">Admin</a></li>
+                    <?php
+                }
+            }
             if (isset($_COOKIE['user']))     {
                 ?>
                 <li><a href="membre">Compte</a></li>
                 <li><a href="deconnexion"><i class="mdi-action-exit-to-app"></i></a></li>
-             <?php
+            <?php
             } else {
                 ?>
                 <li><a href="connexion"><i class="mdi-social-person-outline"></i></a></li>
