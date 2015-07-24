@@ -29,7 +29,7 @@ class profilController extends \Slim\Slim
         $users->twitter = $_POST['twitter'];
         $users->avatar = "http://127.0.0.1/WorthCenter/uploads/" . $slim->getCookie("user") . ".jpg";
         R::store($users);
-        $slim->redirect("profil");
+        $slim->redirect("membre");
 
     }
 }

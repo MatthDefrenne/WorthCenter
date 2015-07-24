@@ -4,6 +4,7 @@ class membreController extends \Slim\Slim
 {
     public static function userArea()
     {
+
         $slim = \Slim\Slim::getInstance();
 
         $userArea = new \WorthCenter\userArea($slim->getCookie('user'));
@@ -11,6 +12,7 @@ class membreController extends \Slim\Slim
         $informations = $userArea->selectInformationsForUserArea();
         $projects = $userArea->selectProjectsinvestissmentsActive();
         $projectsOver = $userArea->selectProjectsinvestissmentsOver();
+        $messageNoRead = \WorthCenter\userManager::selectCountMessageNoRead();
 
         if(empty($projects)) {
             $projects = array(
@@ -27,7 +29,8 @@ class membreController extends \Slim\Slim
         $slim->render('membre.php', array(
             'informations' => $informations,
             'projects' => $projects,
-            'projectsOver' => $projectsOver
+            'projectsOver' => $projectsOver,
+            'messageNoRead' => $messageNoRead
         ));
 
     }

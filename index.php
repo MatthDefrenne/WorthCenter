@@ -22,6 +22,8 @@ require 'class/userArea.php';
 require 'class/projects.php';
 require 'class/projectsManager.php';
 require 'class/imageManager.php';
+
+
 session_start();
 
 
@@ -34,6 +36,7 @@ $app = new \Slim\Slim([
 ]);
 
 $app->add(new authMiddleware());
+
 $app->get('/', function () use ($app) {
     indexController::index();
     indexController::derniersProjets();
@@ -80,6 +83,12 @@ $app->post('/profil', function () use ($app) {
 $app->get('/message', function () use ($app) {
     messageController::index();
 });
+$app->put('/message', function () use ($app) {
+    messageController::readAllMessage();
+});
+$app->post('/message', function () use ($app) {
+    messageController::sendMessage();
+});
 $app->post('/lostpassword', function () use ($app) {
     connexionController::golostpassword();
 });
@@ -102,14 +111,23 @@ $app->post('/formules', function () use ($app) {
     formulesController::createFormulaire($_POST['amount']);
 });
 $app->get('/addcredit', function () use ($app) {
-   formulesController::addCreditToAmount($_SESSION['6K1K2M6Z8mH1KUku5vWm70l0aRf0B8WK']);
+   formulesController::addCreditToAccount();
+});
+$app->get('/showproject/:id', function ($id) use ($app) {
+    projetsController::showInfosProjet($id);
+});
+$app->post('/showproject/:id', function ($id) use ($app) {
+    projetsController::addCreditToProject($id);
 });
 $app->get('/membre', function () use ($app) {
     membreController::userArea();
 });
 
 $app->render('header.php');
-$app->render('navigation.php');
+$uri = $app->request()->getRootUri();
+$app->render('navigation.php', array(
+    "uri" => $uri
+));
 
 $app->run();
 

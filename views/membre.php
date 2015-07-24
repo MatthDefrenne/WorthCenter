@@ -12,7 +12,7 @@ foreach ($informations as $infos) {
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container" ng-app="app">
         <div class="row separator">
             <div class="row">
                 <div class="col s12 m2">
@@ -25,10 +25,9 @@ foreach ($informations as $infos) {
 
                     <hr>
                     </p>
-                    <ul class="collection">
-                        <li class="collection-item"><a href="friends">Amis</a></li>
+                    <ul class="collection" ng-controller="messageController">
                         <li class="collection-item"><a href="profil">Profil</a></li>
-                        <li class="collection-item"><a href="message">Message</a></li>
+                        <li class="collection-item"><a ng-click="see()" href="message">Message <span  class="new badge"><?= $messageNoRead ?></span></a></li>
                     </ul>
                 </div>
                 <div class="col s12 m10">
@@ -116,3 +115,13 @@ foreach ($informations as $infos) {
 <?php
 }
 ?>
+<script>
+    var app = angular.module("app", ['ngAnimate']);
+    app.controller('messageController', function($scope, $http) {
+        $scope.see = function() {
+            $http.put('message').success(function(){
+
+            });
+        }
+    });
+</script>

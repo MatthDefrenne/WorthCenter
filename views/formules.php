@@ -26,7 +26,7 @@
                 <br/>
                 <br/>
                 Montant à créditer :
-                <input type='number' name='amount' value=''/>
+                <input type='number' name='amount' min="20" max="5000" value=''/>
                 <br/>
                 <button class="signup btn waves-effect waves-light indigo" name="connexion"><i
                         class="mdi-content-send left"></i>Ajouter des fonds

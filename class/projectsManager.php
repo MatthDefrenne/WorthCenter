@@ -1,6 +1,8 @@
 <?php
 namespace WorthCenter;
 
+use Slim\Slim;
+
 class projectsManager extends \WorthCenter\projects
 {
 
@@ -34,6 +36,28 @@ class projectsManager extends \WorthCenter\projects
     public static function getProjectById($id)
     {
         return \R::findAndExport( 'projects', 'id = '.$id);
+    }
+
+    public static function selectProjectsinvestissments($id)
+    {
+        return \R::getAll('SELECT * FROM investedproject WHERE idproject = ? ORDER BY timestamp DESC LIMIT 5 ', [$id]);
+    }
+
+    public static function addCreditToProjectById($id, $amount) {
+        \R::exec( 'UPDATE projects SET mountInvested  = mountInvested +'.$amount.' WHERE id = '.$id);
+    }
+
+    public static function AddinvestissmentToProject($id, $amount) {
+        $slim = Slim::getInstance();
+
+        $addInvestissment = \R::dispense('investedproject');
+        $addInvestissment->iduser = $slim->getCookie('user');
+        $addInvestissment->idproject = $id;
+        $addInvestissment->mount = $amount;
+        $addInvestissment->timestamp = new \DateTime();
+        \R::store($addInvestissment);
+
+
     }
 }
 

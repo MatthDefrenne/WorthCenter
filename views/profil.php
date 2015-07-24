@@ -25,7 +25,6 @@
                     <hr>
 
                     <ul class="collection">
-                        <li class="collection-item"><a href="friends">Amis</a></li>
                         <li class="collection-item"><a href="profil">Profil</a></li>
                         <li class="collection-item"><a href="message">Message</a></li>
                     </ul>

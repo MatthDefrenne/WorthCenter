@@ -1,3 +1,6 @@
+<?php
+$_SESSION['6K1K2M6Z8mH1KUku5vWm70l0aRf0B8WK'] = $_POST['amount'];
+?>
 <script>
     window.onload = function(){
         document.forms['myForm'].submit()
