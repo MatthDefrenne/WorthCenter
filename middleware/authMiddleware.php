@@ -14,6 +14,12 @@ class authMiddleware extends \Slim\Middleware
         $app = $this->app;
         $currentRoute = $this->app->request()->getPathInfo();
         $isAuthorized = function () use ($app, $currentRoute) {
+            if($currentRoute == "/admin" || $currentRoute == "/modifproject" || $currentRoute == "/delproject") {
+                if($app->getCookie("roles") == "da4b9237bacccdf19c0760cab7aec4a8359010b0") {
+                } else {
+                    $app->redirect('membre');
+                }
+            }
             if ($currentRoute == "/membre") {
                 if ($app->getCookie("user")) {
                 } else {

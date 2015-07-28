@@ -14,7 +14,6 @@
             <div class="row">
                 <div class="col m12 s12">
                     <?php
-                    session_start();
                     if (isset($_SESSION['subscribe'])) {
                         ?>
                         <div class="card-panel"><?php echo $_SESSION['subscribe']; ?></div>

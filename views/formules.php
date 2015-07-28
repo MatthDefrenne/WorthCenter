@@ -1,107 +1,38 @@
-    <div class="page-intro indigo white-text">
-        <div class="container">
-            <div class="row">
-                <div class="col m12 s12">
-                    <h2>Formules</h2>
-                    <h5>Découvrir l'ensemble de nos formules d'investissements à la carte !</h5>
-                </div>
-            </div>
-        </div>
-    </div>
+
+<div class="page-intro indigo white-text">
     <div class="container">
         <div class="row">
-                        <h2 class="header indigo-text lighten-1 section-title">
-                <span>Choisir une  formule</span>
-            </h2>
-            <div class="row">
-                <div class="col s12 m3">
-                    <div class="card indigo lighten-5">
-                        <div class="card-content white-text">
-                            <span class="card-title indigo-text">Fofait 20€</span>
-                            <hr>
-                            <form action="/formules" method="POST">
-                                <button class="btn waves-effect waves-light indigo" type="submit" name="Forfait1">COMMANDER !</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m3">
-                    <div class="card indigo lighten-5">
-                        <div class="card-content white-text">
-                            <span class="card-title indigo-text">Forfait 50€</span>
-                            <hr>
-                            <form action="/formules" method="POST">
-                                <button class="btn waves-effect waves-light indigo" type="submit" name="Forfait2">COMMANDER !</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m3">
-                    <div class="card indigo lighten-5">
-                        <div class="card-content white-text">
-                            <span class="card-title indigo-text">Forfait 100€</span>
-                            <hr>
-                            <form action="/formules" method="POST">
-                                <button class="btn waves-effect waves-light indigo" type="submit" name="Forfait3">COMMANDER !</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m3">
-                    <div class="card indigo lighten-5">
-                        <div class="card-content white-text">
-                            <span class="card-title indigo-text">Forfait 200€</span>
-                            <hr>
-                            <form action="/formules" method="POST">
-                                <button class="btn waves-effect waves-light indigo" type="submit" name="Forfait4">COMMANDER !</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m3">
-                    <div class="card indigo lighten-5">
-                        <div class="card-content white-text">
-                            <span class="card-title indigo-text">Forfait 500€</span>
-                            <hr>
-                            <form action="/formules" method="POST">
-                                <button class="btn waves-effect waves-light indigo" type="submit" name="Forfait5">COMMANDER !</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m3">
-                    <div class="card indigo lighten-5">
-                        <div class="card-content white-text">
-                            <span class="card-title indigo-text">Forfait 1 000€</span>
-                            <hr>
-                            <form action="/formules" method="POST">
-                                <button class="btn waves-effect waves-light indigo" type="submit" name="Forfait6">COMMANDER !</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m3">
-                    <div class="card indigo lighten-5">
-                        <div class="card-content white-text">
-                            <span class="card-title indigo-text item_price">Forfait 2 000€</span>
-                            <hr>
-                            <form action="/formules" method="POST">
-                                <button class="btn waves-effect waves-light indigo" type="submit" name="Forfait7">COMMANDER !</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m3">
-                    <div class="card indigo lighten-5">
-                        <div class="card-content white-text">
-                            <span class="card-title indigo-text">Forfait 5 000€</span>
-                            <hr>
-                            <form action="/formules" method="POST">
-                                <button class="btn waves-effect waves-light indigo" type="submit" name="Forfait8">COMMANDER !</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+            <div class="col m12 s12">
+                <h2>Créditer mon compte</h2>
+                <h5>Pour ajouter des fonds à votre compte, rien de plus simple : choisisez le montant désirez et cliquer
+                    sur valider.</h5>
             </div>
         </div>
     </div>
+</div>
+<div class="container">
+    <div class="row">
+        <h2 class="header indigo-text lighten-1 section-title">
+        </h2>
+
+        <div class="row">
+            <form action="" method="post" target="_blank">
+                <fieldset>
+                    <legend>Comment ça marche ? </legend>
+                    <li>Pour utiliser ce service de payement vous devrez entrer vos coordonnées bancaire sur un site sécurisé : <a href="https://www.hipay.com/fr/">https://www.hipay.com/fr/</a></li>
+                    <li>Si vous possedez un compte chez Hipay, il ne vous reste plus que à entrer un montant à créditer (<font color="red">Minimum 1 euro</font>) et valider la transaction</li>
+                    <li><b>Aucune coordonnée bancaire n'est enregistrée sur notre site internet.</b> Après la transaction votre compte sera crédité</li>
+                </fieldset>
+                <br/>
+                <br/>
+                Montant à créditer :
+                <input type='number' name='amount' min="20" max="5000" value=''/>
+                <br/>
+                <button class="signup btn waves-effect waves-light indigo" name="connexion"><i
+                        class="mdi-content-send left"></i>Ajouter des fonds
+                </button>
+
+            </form>
+        </div>
+    </div>
+</div>

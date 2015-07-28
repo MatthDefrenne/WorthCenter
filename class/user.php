@@ -22,8 +22,17 @@ class user
         }
     }
 
-    public function checkIsExist() {
+    public function checkEmailIsExist() {
         $user  = \R::find( 'users', ' email = :email ', [ ':email' => $this->email ] );
+        if($user) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function checkPseudoIsExist() {
+        $user  = \R::find( 'users', ' pseudo = :pseudo ', [ ':pseudo' => $this->pseudo ] );
         if($user) {
             return true;
         } else {
@@ -36,10 +45,12 @@ class user
             [ ':email' => $this->email, ':password' => $this->password]);
         if($user) {
             setcookie("user", $user[0]['id'], time() + (86400 * 30), "/"); // 86400 = 1 day
+            setcookie("roles", sha1($user[0]['roles']), time() + (86400 * 30), "/"); // 86400 = 1 day
             return true;
             } else {
             return false;
         }
     }
+
 
 }

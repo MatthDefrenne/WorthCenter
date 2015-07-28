@@ -14,7 +14,6 @@ class inscriptionController extends \Slim\Slim
     {
         $slim = \Slim\Slim::getInstance();
         if ($_POST['Motdepasse'] != $_POST['MotdepasseConfirmation']) {
-            $slim->redirect('inscription');
             flash::setFlash('subscribe', "Les deux mots de passe ne sont pas identiques !");
         } else {
             if (empty($_POST['Pseudonyme'])) {
@@ -31,15 +30,17 @@ class inscriptionController extends \Slim\Slim
                     "password" => sha1($_POST['Motdepasse']),
                     "email" => $_POST['AdresseEmail'],
                 ));
-                if ($user->checkIsExist()) {
+                if ($user->checkEmailIsExist()) {
                     flash::setFlash('subscribe', "Cette email est déjà prise !");
+                } else if($user->checkPseudoIsExist()) {
+                    flash::setFlash('subscribe', "Ce pseudo est déjà pris !");
                 } else {
                     \WorthCenter\userManager::addUser($user);
                     flash::setFlash('subscribe', "Vous êtes bien inscris !");
                 }
 
             }
-            $slim->redirect('inscription');
         }
+        $slim->redirect('inscription');
     }
 }

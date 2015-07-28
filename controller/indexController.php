@@ -12,6 +12,9 @@ class indexController extends \Slim\Slim
     public static function derniersProjets()
     {
         $slim = \Slim\Slim::getInstance();
-        $slim->render('derniers_projets.php');
+        $projets = \WorthCenter\projectsManager::getThreeLastProject();
+        $slim->render('derniers_projets.php', array(
+            'projets' => $projets,
+        ));
     }
 }
